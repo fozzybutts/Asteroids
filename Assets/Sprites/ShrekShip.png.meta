@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ShrekShip_0: 4724372797385712239
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
