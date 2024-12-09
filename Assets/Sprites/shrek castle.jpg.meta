@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shrek castle_0: -2996599606283747390
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

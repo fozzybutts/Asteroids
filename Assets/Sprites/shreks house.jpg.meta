@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shreks house_0: 6425900278963806655
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

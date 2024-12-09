@@ -7,34 +7,60 @@ public class ScrollScript : MonoBehaviour
     public float resetPositionXLeft = -31.0f;
     public float resetPositionXRight = 31.0f; 
     public float resetPositionYUp = 6.0f; 
-    public float resetPositionYDown = -6.0f; 
+    public float resetPositionYDown = -6.0f;
+    public AudioSource audioSource;
+    public AudioClip teleportSound;
+
+    void Start()
+    {
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
+
+    void Teleport()
+    {
+        audioSource.PlayOneShot(teleportSound);
+    } 
 
     void Update()
     {
+        bool hasWrapped = false;
+
         if (Player != null)
         {
             if (Player.transform.position.x > resetPositionXRight)
             {
                 // Then reset player's position to the LEFT
                 Player.transform.position = new Vector3(resetPositionXLeft, Player.transform.position.y, Player.transform.position.z);
+                hasWrapped = true;
             }
 
             if (Player.transform.position.x < resetPositionXLeft)
             {
                 // Then reset player's position to the RIGHT
                 Player.transform.position = new Vector3(resetPositionXRight, Player.transform.position.y, Player.transform.position.z);
+                hasWrapped = true;
             }
 
             if (Player.transform.position.y < resetPositionYDown)
             {
                 // Then reset the player's position to the TOP
                 Player.transform.position = new Vector3(Player.transform.position.x, resetPositionYUp, Player.transform.position.z);
+                hasWrapped = true;
             }
 
             if (Player.transform.position.y > resetPositionYUp)
             {
                 // Then reset the player's position to the BOTTOM
                 Player.transform.position = new Vector3(Player.transform.position.x, resetPositionYDown, Player.transform.position.z);
+                hasWrapped = true;
+            }
+
+            if (hasWrapped)
+            {
+                Teleport();
             }
         }
 

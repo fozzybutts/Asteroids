@@ -5,6 +5,8 @@ public class PlayerShooting : MonoBehaviour
     public GameObject ShrekBulletPrefab;
     public float ShrekBulletSpeed = 10f;
     public Transform ShrekBulletSpawnPoint;
+    public AudioSource audioSource;
+    public AudioClip fireSound;
 
     void Update()
     {
@@ -20,5 +22,7 @@ public class PlayerShooting : MonoBehaviour
 
         Rigidbody2D ShrekBulletRb = ShrekBullet.GetComponent<Rigidbody2D>();
         ShrekBulletRb.linearVelocity = transform.up * ShrekBulletSpeed;
+
+        audioSource.PlayOneShot(fireSound); // Play fire sound
     }
 }
