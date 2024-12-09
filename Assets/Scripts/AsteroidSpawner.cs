@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    public GameObject FaroidPrefab;
+    public GameObject[] asteroidPrefabs;
     public float spawnInterval = 2f;  
     public float spawnRadius = 10f;  
 
@@ -14,6 +14,7 @@ public class AsteroidSpawner : MonoBehaviour
     void SpawnAsteroid()
     {
         Vector2 spawnPosition = Random.insideUnitCircle * spawnRadius;
-        Instantiate(FaroidPrefab, spawnPosition, Quaternion.identity);
+        int randomIndex = Random.Range(0, asteroidPrefabs.Length); 
+        Instantiate(asteroidPrefabs[randomIndex], spawnPosition, Quaternion.identity);
     }
 }
